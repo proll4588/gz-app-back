@@ -1,4 +1,6 @@
 import { DBUser, LoginData } from '../entities/user/user.interface';
+import { verifyUserJWT } from './jwt-help/verifyUserJWT';
+import { comparePassword } from './password-help/comparePassword';
 
 /**
  * Проверка валидности токена (проверка авторизации) при
@@ -9,7 +11,7 @@ export const context = ({ req, res }) => {
   if (!token) return { verified: false };
 
   try {
-    const info = jwt.verify(token, secret);
+    const info = verifyUserJWT(token);
     return { verified: true, userId: info.id };
   } catch (e) {
     return { verified: false };
