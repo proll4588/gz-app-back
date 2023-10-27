@@ -1,11 +1,13 @@
 {
   "name": "gz-app-back",
   "version": "1.0.0",
-  "main": "./dist/index.js",
-  "type": "commonjs",
+  "main": "./dist/server.js",
+  "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "node ./dist/index.js"
+    "start": "NODE_OPTIONS='--experimental-specifier-resolution=node' node ./dist/index.js",
+    "generatePrisma": "npx prisma db pull && prisma generate",
+    "dev": "npm run build && npm run start"
   },
   "keywords": [],
   "author": "",
