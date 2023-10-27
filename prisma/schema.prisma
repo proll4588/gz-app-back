@@ -7,10 +7,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model user {
-  id       Int    @id @default(autoincrement())
-  login    String @unique(map: "user_pk2") @db.VarChar(20)
-  password String @db.VarChar(255)
+model pool {
+  id            Int       @id @default(autoincrement())
+  user_id       Int
+  title         String    @db.VarChar(100)
+  date_create   DateTime  @db.DateTime(0)
+  is_complite   Boolean   @default(false)
+  date_complite DateTime? @db.DateTime(0)
+  tasks         tasks[]
 
-  @@index([login], map: "user_login_index")
+  @@index([date_complite], map: "pool_date_complite_index")
+  @@index([date_create], map: "pool_date_create_index")
+  @@index([user_id], map: "pool_user_id_index")
+}
+
+model tasks {
+  id         Int       @id @default(autoincrement())
+  pool_id    Int
+  title      String    @db.VarChar(100)
+  start_date DateTime? @db.DateTime(0)
+  end_date   DateTime? @db.DateTime(0)
+  pool       pool      @relation(fields: [pool_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tasks_pool_id_fk")
+
+  @@index([pool_id], map: "tasks_pool_id_fk")
 }
