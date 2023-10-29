@@ -9,13 +9,12 @@ export const typeDefs = `#graphql
     isComplite: Boolean!
   }
 
-
   type Query {
     getPool: [Pool]!
   }
 
-
   type Mutation {
     createPool(title: String!, dateCreate: Float): Pool!
+    deletePool(poolId: Int!): Pool!
   }
 `;
