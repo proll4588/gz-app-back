@@ -1,8 +1,8 @@
-import { resolveCreatePool } from './requests/task/create-pool/createPool';
+import { resolveCreatePool } from './requests/pool/create-pool/createPool';
 import { authOnly } from './libs/authOnly';
-import { resolveGetPool } from './requests/task/get-pool';
-import { resolveDeletePool } from './requests/task/delete-pool';
-import { resolveUpdatePool } from './requests/task/update-pool';
+import { resolveGetPool } from './requests/pool/get-pool';
+import { resolveDeletePool } from './requests/pool/delete-pool';
+import { resolveUpdatePool } from './requests/pool/update-pool';
 
 export const resolvers = {
   Query: {
