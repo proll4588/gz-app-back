@@ -1,11 +1,8 @@
 export const typeDefs = `#graphql
-  
   type Pool {
     id: ID!
     userId: Int!
-    title: String!
-    dateCreate: Float!
-    dateComplite: Float
+    month: Float!
     isComplite: Boolean!
   }
 
@@ -14,7 +11,8 @@ export const typeDefs = `#graphql
   }
 
   type Mutation {
-    createPool(title: String!, dateCreate: Float): Pool!
+    createPool(month: Float): Pool!
     deletePool(poolId: Int!): Pool!
+    updatePool(poolId: Int!, month: Float, status: Boolean): Pool!
   }
 `;

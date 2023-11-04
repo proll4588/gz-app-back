@@ -1,14 +1,11 @@
 import { DBPool, ResponsePool } from './type';
 
 export const convertPool = (dbPool: DBPool): ResponsePool => {
-  const { date_complite, date_create, id, is_complite, title, user_id } =
-    dbPool;
+  const { id, is_complite, user_id, month } = dbPool;
 
   return {
     id,
-    title,
-    dateComplite: date_complite?.getTime() || null,
-    dateCreate: date_create.getTime(),
+    month: month.getTime(),
     isComplite: is_complite,
     userId: user_id,
   };

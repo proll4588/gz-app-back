@@ -3,9 +3,7 @@ import { Prisma } from '@prisma/client';
 export interface ResponsePool {
   id: number;
   userId: number;
-  title: string;
-  dateCreate: number;
-  dateComplite: number | null;
+  month: number;
   isComplite: boolean;
 }
 

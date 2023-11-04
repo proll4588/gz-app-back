@@ -8,16 +8,12 @@ datasource db {
 }
 
 model pool {
-  id            Int       @id @default(autoincrement())
-  user_id       Int
-  title         String    @db.VarChar(100)
-  date_create   DateTime  @db.DateTime(0)
-  is_complite   Boolean   @default(false)
-  date_complite DateTime? @db.DateTime(0)
-  tasks         tasks[]
+  id          Int      @id @default(autoincrement())
+  user_id     Int
+  month       DateTime @db.DateTime(0)
+  is_complite Boolean  @default(false)
+  tasks       tasks[]
 
-  @@index([date_complite], map: "pool_date_complite_index")
-  @@index([date_create], map: "pool_date_create_index")
   @@index([user_id], map: "pool_user_id_index")
 }
 
