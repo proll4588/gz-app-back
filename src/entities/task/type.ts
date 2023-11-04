@@ -17,3 +17,10 @@ export interface CreateTaskArgs {
   startDate: number | null;
   endDate: number | null;
 }
+
+export interface UpdateTaskArgs {
+  taskId: ID;
+  title: string | null;
+  startDate: number | null;
+  endDate: number | null;
+}

@@ -1,9 +1,8 @@
 import { prisma } from '../../prisma/prisma';
 import { ID } from '../../shared/commonTypes';
-import { CreateTaskArgs } from './type';
+import { CreateTaskArgs, UpdateTaskArgs } from './type';
 
 /* == CREATE == */
-
 export const createTask = async (params: CreateTaskArgs) => {
   const { endDate, poolId, startDate, title } = params;
 
@@ -44,13 +43,7 @@ export const deleteTask = async (taskId: ID) => {
 /* ===== */
 
 /* == UPDATE == */
-interface UpdateTaskParams {
-  taskId: ID;
-  title: string | null;
-  startDate: number | null;
-  endDate: number | null;
-}
-export const updateTask = async (params: UpdateTaskParams) => {
+export const updateTask = async (params: UpdateTaskArgs) => {
   const { endDate, startDate, taskId, title } = params;
 
   const newTitle = title || undefined;

@@ -1,8 +1,8 @@
 import { convertTask } from '../../../../entities/task/convert';
 import { createTask } from '../../../../entities/task/task';
-import { CreateTaskresolverFunction } from './type';
+import { CreateTaskResolverFunction } from './type';
 
-export const resolveCreateTask: CreateTaskresolverFunction = async (
+export const resolveCreateTask: CreateTaskResolverFunction = async (
   _,
   args
 ) => {

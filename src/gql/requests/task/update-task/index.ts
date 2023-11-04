@@ -1,0 +1,1 @@
+export { resolveUpdateTask } from './updateTask';
