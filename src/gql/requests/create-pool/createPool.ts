@@ -2,12 +2,8 @@ import { CreatePoolResolverFunction } from './type';
 import { convertPool } from '../../../entities/pool/convert';
 import { createPool } from '../../../entities/pool/pool';
 
-const handleCreatePool = async (
-  userId: number,
-  title: string,
-  dateCreate: number | null
-) => {
-  const createdPool = await createPool({ userId, title, dateCreate });
+const handleCreatePool = async (userId: number, month: number | null) => {
+  const createdPool = await createPool({ userId, month });
   const convPool = convertPool(createdPool);
 
   return convPool;
@@ -15,9 +11,9 @@ const handleCreatePool = async (
 
 export const resolveCreatePool: CreatePoolResolverFunction = async (
   _,
-  { title, dateCreate },
+  { month },
   contextValue
 ) => {
   const userId = contextValue.userId as number;
-  return await handleCreatePool(userId, title, dateCreate);
+  return await handleCreatePool(userId, month);
 };

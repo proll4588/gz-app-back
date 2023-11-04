@@ -7,6 +7,5 @@ export type CreatePoolResolverFunction = ResolversFun<
 >;
 
 export interface CreatePoolArgs {
-  title: string;
-  dateCreate: number | null;
+  month: number | null;
 }
