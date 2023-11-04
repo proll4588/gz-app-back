@@ -1,10 +1,15 @@
 import { prisma } from '../../prisma/prisma';
 import { ID } from '../../shared/commonTypes';
-import { CreateTaskArgs, UpdateTaskArgs } from './type';
+import {
+  CreateTaskArgs,
+  DeleteTaskArgs,
+  GetTasksArgs,
+  UpdateTaskArgs,
+} from './type';
 
 /* == CREATE == */
-export const createTask = async (params: CreateTaskArgs) => {
-  const { endDate, poolId, startDate, title } = params;
+export const createTask = async (args: CreateTaskArgs) => {
+  const { endDate, poolId, startDate, title } = args;
 
   const datedStartDate = startDate ? new Date(startDate) : undefined;
   const datedEndDate = endDate ? new Date(endDate) : undefined;
@@ -23,9 +28,9 @@ export const createTask = async (params: CreateTaskArgs) => {
 /* ===== */
 
 /* == GET == */
-export const getTasks = async (poolId: ID) => {
+export const getTasks = async (args: GetTasksArgs) => {
   const task = await prisma.tasks.findMany({
-    where: { pool_id: poolId },
+    where: { pool_id: args.poolId },
   });
 
   return task;
@@ -33,9 +38,9 @@ export const getTasks = async (poolId: ID) => {
 /* ===== */
 
 /* == DELETE == */
-export const deleteTask = async (taskId: ID) => {
+export const deleteTask = async (args: DeleteTaskArgs) => {
   const deletedTask = await prisma.tasks.delete({
-    where: { id: taskId },
+    where: { id: args.taskId },
   });
 
   return deletedTask;
@@ -43,8 +48,8 @@ export const deleteTask = async (taskId: ID) => {
 /* ===== */
 
 /* == UPDATE == */
-export const updateTask = async (params: UpdateTaskArgs) => {
-  const { endDate, startDate, taskId, title } = params;
+export const updateTask = async (args: UpdateTaskArgs) => {
+  const { endDate, startDate, taskId, title } = args;
 
   const newTitle = title || undefined;
   const newStartDate = startDate ? new Date(startDate) : undefined;

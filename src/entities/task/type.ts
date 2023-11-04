@@ -24,3 +24,11 @@ export interface UpdateTaskArgs {
   startDate: number | null;
   endDate: number | null;
 }
+
+export interface GetTasksArgs {
+  poolId: ID;
+}
+
+export interface DeleteTaskArgs {
+  taskId: ID;
+}

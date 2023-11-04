@@ -16,6 +16,7 @@ export const typeDefs = `#graphql
 
   type Query {
     getPool: [Pool]!
+    getTasks(poolId: Int!): [Task]!
   }
 
   type Mutation {
