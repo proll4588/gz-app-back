@@ -3,6 +3,7 @@ import { authOnly } from './libs/authOnly';
 import { resolveGetPool } from './requests/pool/get-pool';
 import { resolveDeletePool } from './requests/pool/delete-pool';
 import { resolveUpdatePool } from './requests/pool/update-pool';
+import { resolveCreateTask } from './requests/task/create-task/createTask';
 
 export const resolvers = {
   Query: {
@@ -12,5 +13,7 @@ export const resolvers = {
     createPool: authOnly(resolveCreatePool),
     deletePool: authOnly(resolveDeletePool),
     updatePool: authOnly(resolveUpdatePool),
+
+    createTask: authOnly(resolveCreateTask),
   },
 };

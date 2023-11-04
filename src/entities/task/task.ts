@@ -1,14 +1,10 @@
 import { prisma } from '../../prisma/prisma';
 import { ID } from '../../shared/commonTypes';
+import { CreateTaskArgs } from './type';
 
 /* == CREATE == */
-interface CreateTaskParams {
-  poolId: ID;
-  title: string;
-  startDate: number | null;
-  endDate: number | null;
-}
-export const createTask = async (params: CreateTaskParams) => {
+
+export const createTask = async (params: CreateTaskArgs) => {
   const { endDate, poolId, startDate, title } = params;
 
   const datedStartDate = startDate ? new Date(startDate) : undefined;

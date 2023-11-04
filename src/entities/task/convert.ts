@@ -1,6 +1,6 @@
-import { DBTask, ResponeTask } from './type';
+import { DBTask, ResponseTask } from './type';
 
-export const convertTask = (dbTask: DBTask): ResponeTask => {
+export const convertTask = (dbTask: DBTask): ResponseTask => {
   const { end_date, id, pool_id, start_date, title } = dbTask;
   return {
     id,
