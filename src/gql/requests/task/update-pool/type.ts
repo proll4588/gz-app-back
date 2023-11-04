@@ -1,6 +1,6 @@
-import { ResponsePool } from '../../../entities/pool/type';
-import { ID } from '../../../shared/commonTypes';
-import { ResolversFun } from '../../type';
+import { ResponsePool } from '../../../../entities/pool/type';
+import { ID } from '../../../../shared/commonTypes';
+import { ResolversFun } from '../../../type';
 
 export type UpdatePoolResolverFunction = ResolversFun<
   UpdatePoolArgs,

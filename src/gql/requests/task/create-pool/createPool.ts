@@ -1,6 +1,6 @@
 import { CreatePoolResolverFunction } from './type';
-import { convertPool } from '../../../entities/pool/convert';
-import { createPool } from '../../../entities/pool/pool';
+import { convertPool } from '../../../../entities/pool/convert';
+import { createPool } from '../../../../entities/pool/pool';
 
 const handleCreatePool = async (userId: number, month: number | null) => {
   const createdPool = await createPool({ userId, month });

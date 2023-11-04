@@ -1,5 +1,5 @@
-import { ResponsePool } from '../../../entities/pool/type';
-import { ResolversFun } from '../../type';
+import { ResponsePool } from '../../../../entities/pool/type';
+import { ResolversFun } from '../../../type';
 
 export type CreatePoolResolverFunction = ResolversFun<
   CreatePoolArgs,

@@ -1,6 +1,6 @@
-import { convertPool } from '../../../entities/pool/convert';
-import { updatePool } from '../../../entities/pool/pool';
-import { ID } from '../../../shared/commonTypes';
+import { convertPool } from '../../../../entities/pool/convert';
+import { updatePool } from '../../../../entities/pool/pool';
+import { ID } from '../../../../shared/commonTypes';
 import { UpdatePoolResolverFunction } from './type';
 
 export const handleUpdatePool = async (

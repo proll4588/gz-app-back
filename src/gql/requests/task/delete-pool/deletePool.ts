@@ -1,6 +1,6 @@
-import { convertPool } from '../../../entities/pool/convert';
-import { deletePool } from '../../../entities/pool/pool';
-import { ID } from '../../../shared/commonTypes';
+import { convertPool } from '../../../../entities/pool/convert';
+import { deletePool } from '../../../../entities/pool/pool';
+import { ID } from '../../../../shared/commonTypes';
 import { DeletePoolResolverFunction } from './type';
 
 export const handleDeletePool = async (poolId: ID) => {

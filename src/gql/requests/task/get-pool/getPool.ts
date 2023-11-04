@@ -1,5 +1,5 @@
-import { convertPool } from '../../../entities/pool/convert';
-import { getUserPools } from '../../../entities/pool/pool';
+import { convertPool } from '../../../../entities/pool/convert';
+import { getUserPools } from '../../../../entities/pool/pool';
 import { GetPoolResolverFuction } from './type';
 
 const handleGetPool = async (userId: number) => {
