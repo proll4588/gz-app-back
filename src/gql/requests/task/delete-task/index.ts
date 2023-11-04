@@ -1,0 +1,1 @@
+export { resolveDeleteTask } from './deleteTask';

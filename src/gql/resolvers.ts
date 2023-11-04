@@ -6,6 +6,7 @@ import { resolveUpdatePool } from './requests/pool/update-pool';
 import { resolveCreateTask } from './requests/task/create-task/createTask';
 import { resolveUpdateTask } from './requests/task/update-task';
 import { resolveGetTasks } from './requests/task/get-tasks';
+import { resolveDeleteTask } from './requests/task/delete-task';
 
 export const resolvers = {
   Query: {
@@ -18,6 +19,7 @@ export const resolvers = {
     updatePool: authOnly(resolveUpdatePool),
 
     createTask: authOnly(resolveCreateTask),
+    deleteTask: authOnly(resolveDeleteTask),
     updateTask: authOnly(resolveUpdateTask),
   },
 };

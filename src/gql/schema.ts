@@ -25,6 +25,7 @@ export const typeDefs = `#graphql
     updatePool(poolId: Int!, month: Float, status: Boolean): Pool!
 
     createTask(poolId: Int!, title: String!, startDate: Float, endDate: Float): Task!
+    deleteTask(taskId: Int!): Task!
     updateTask(taskId: Int!, title: String, startDate: Float, endDate: Float): Task!
   }
 `;
