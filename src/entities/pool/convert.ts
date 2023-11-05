@@ -1,3 +1,4 @@
+import { dateToUnix } from '../../shared/dateToUnix';
 import { DBPool, ResponsePool } from './type';
 
 export const convertPool = (dbPool: DBPool): ResponsePool => {
@@ -5,7 +6,7 @@ export const convertPool = (dbPool: DBPool): ResponsePool => {
 
   return {
     id,
-    month: month.getTime(),
+    month: dateToUnix(month),
     isComplite: is_complite,
     userId: user_id,
   };

@@ -1,5 +1,5 @@
 import { prisma } from '../../prisma/prisma';
-import { ID } from '../../shared/commonTypes';
+import { unixToDate } from '../../shared/unixToDate';
 
 /* == GET == */
 export const getUserPools = async (userId: number) => {
@@ -17,7 +17,7 @@ interface CreatePoolParams {
   month: number | null;
 }
 export const createPool = async ({ userId, month }: CreatePoolParams) => {
-  const monthDate = month ? new Date(month) : new Date();
+  const monthDate = month ? unixToDate(month) : new Date();
 
   const newPool = await prisma.pool.create({
     data: {
@@ -54,7 +54,7 @@ export const updatePool = async ({
   poolId,
   status,
 }: UpdatePoolParams) => {
-  const newMonth = month ? new Date(month) : undefined;
+  const newMonth = month ? unixToDate(month) : undefined;
   const newStatus = status ? status : undefined;
 
   const updatedPool = await prisma.pool.update({

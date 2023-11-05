@@ -1,5 +1,5 @@
 import { prisma } from '../../prisma/prisma';
-import { ID } from '../../shared/commonTypes';
+import { unixToDate } from '../../shared/unixToDate';
 import {
   CreateTaskArgs,
   DeleteTaskArgs,
@@ -11,8 +11,8 @@ import {
 export const createTask = async (args: CreateTaskArgs) => {
   const { endDate, poolId, startDate, title } = args;
 
-  const datedStartDate = startDate ? new Date(startDate) : undefined;
-  const datedEndDate = endDate ? new Date(endDate) : undefined;
+  const datedStartDate = startDate ? unixToDate(startDate) : undefined;
+  const datedEndDate = endDate ? unixToDate(endDate) : undefined;
 
   const newTask = await prisma.tasks.create({
     data: {
@@ -52,8 +52,8 @@ export const updateTask = async (args: UpdateTaskArgs) => {
   const { endDate, startDate, taskId, title } = args;
 
   const newTitle = title || undefined;
-  const newStartDate = startDate ? new Date(startDate) : undefined;
-  const newEndDate = endDate ? new Date(endDate) : undefined;
+  const newStartDate = startDate ? unixToDate(startDate) : undefined;
+  const newEndDate = endDate ? unixToDate(endDate) : undefined;
 
   const updatedTask = await prisma.tasks.update({
     where: { id: taskId },
